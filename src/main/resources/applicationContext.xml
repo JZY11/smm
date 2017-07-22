@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--配置的都是一些第三方的bean，它的一个注册的过程-->
+
+    <!--1.引入一个jdbc的properties文件，先创建jdbc.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--连接数据源,第一个bean-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc_driverClassName}"/><!--配置四个属性-->
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_usermane}"/>
+        <property name="password" value="${jdbc_password}"/>
+    </bean>
+
+    <!--第二个bean：需要关联的Maybatis生成的Sqlsession的SqlsessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/><!--依赖刚配置好的dataSource-->
+        <property name="typeAliases" value="ssm.model"/><!--模型类名字的别名-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/><!--mapper映射文件的路径-->
+    </bean>
+
+    <!--第三个bean：sqlSession-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"><!--对应的是SqlSessionTemplate这个类-->
+        <!--关联上一步配置好的sqlSessionFactory，用构造方法--><constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+</beans>

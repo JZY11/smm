@@ -17,7 +17,7 @@ import java.util.List;
  * on 2017/7/22.
  * smm.
  */
-public class GeneriDaoImpl<T extends Serializable, ID extends Number> implements GenericDao<T, ID> {
+public class GenericDaoImpl<T extends Serializable, ID extends Number> implements GenericDao<T, ID> {
 
     //GeneriDaoImpl是靠MyBatis来实现的，所以有Sqlsession
 
@@ -26,7 +26,7 @@ public class GeneriDaoImpl<T extends Serializable, ID extends Number> implements
     @Autowired
     private SqlSession sqlSession;
 
-    public GeneriDaoImpl() {
+    public GenericDaoImpl() {
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         Class<T> clazz = (Class<T>) parameterizedType.getActualTypeArguments()[0];
         namespace = StringUtils.uncapitalize(clazz.getSimpleName());

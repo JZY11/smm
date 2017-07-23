@@ -6,6 +6,6 @@
 
 <!--与模板有关的配置文件-->
     <bean id="freemarker" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="configLocation" value="classpath:template"/>
+        <property name="templateLoaderPath" value="classpath:template"/>
     </bean>
 </beans>

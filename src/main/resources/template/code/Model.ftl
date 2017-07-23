@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class ${modle} extends BaseModel {
+public class ${model} extends BaseModel {
     private ${PK} id;
     <#list properties?keys as key>
     private ${properties[key]} ${key};

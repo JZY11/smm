@@ -11,7 +11,7 @@ import java.util.List;
  * Created by zhenya.1291813139.com
  * on 2017/7/22.
  * smm.
- * lambok的注解   分页
+ * lambok的注解   分页  创建Pagination这样的工具类
  */
 @Data
 @AllArgsConstructor

@@ -74,12 +74,12 @@ public class GeneriDaoImpl<T extends Serializable, ID extends Number> implements
 
     @Override
     public Pagination<T> query(String statement, Object parameter, int currentPage) {
-        return null;
+        return getPagination(statement, parameter, currentPage);
     }
 
     @Override
     public Pagination<T> queryAll(int currentPage) {
-        return null;
+        return getPagination("queryAll",null,currentPage);
     }
 
     private Pagination<T> getPagination(String statement, Object parameter,int currentPage){

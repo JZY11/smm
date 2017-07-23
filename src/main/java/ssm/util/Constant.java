@@ -5,6 +5,7 @@ package ssm.util;
  * on 2017/7/22.
  * smm.
  */
+// 常量接口
 public interface Constant {
     int PAGE_SIZE = 10;
 }

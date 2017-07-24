@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="${model?lower_case}">
+<mapper namespace="${model?uncap_first}">
     <insert id="create" parameterType="${model?lower_case}" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO ${db}.${table} (
     <#list columns?keys as key>

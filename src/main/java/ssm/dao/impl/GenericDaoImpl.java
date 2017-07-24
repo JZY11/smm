@@ -79,7 +79,7 @@ public class GenericDaoImpl<T extends Serializable, ID extends Number> implement
 
     @Override
     public Pagination<T> queryAll(int currentPage) {
-        return getPagination("queryAll",null,currentPage);
+        return getPagination(getStatement("queryAll"),null,currentPage);
     }
 
     private Pagination<T> getPagination(String statement, Object parameter,int currentPage){

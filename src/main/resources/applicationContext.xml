@@ -18,8 +18,8 @@
 
     <!--第二个bean：需要关联的Maybatis生成的Sqlsession的SqlsessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/><!--依赖刚配置好的dataSource-->m
-        <property name="typeAliases" value="ssm.model"/><!--模型类名字的别名-->
+        <property name="dataSource" ref="dataSource"/><!--依赖刚配置好的dataSource-->
+        <property name="typeAliasesPackage" value="ssm.model"/><!--模型类名字的别名-->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/><!--mapper映射文件的路径-->
     </bean>
 

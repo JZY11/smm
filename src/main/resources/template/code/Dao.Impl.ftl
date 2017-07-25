@@ -1,4 +1,4 @@
-package ${package}.dao.ipml;
+package ${package}.dao.impl;
 
 import ${package}.model.${model};
 import ${package}.dao.${model}Dao;
